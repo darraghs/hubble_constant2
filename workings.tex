@@ -1,0 +1,402 @@
+\documentclass[aps,prl,10pt,twocolumn,superscriptaddress]{revtex4}
+%\documentclass[aps,prd,11pt, onecolumn, superscriptaddress, nofootinbib]{revtex4}
+\usepackage{mathrsfs, amssymb, amsmath}  
+\usepackage{epsfig, cancel}
+%\usepackage{bbm, bm, dsfont, yfonts, mathrsfs, dsserif}
+\usepackage{latexsym}
+\usepackage{natbib, comment}
+\usepackage{url}
+\usepackage{dcolumn}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{cancel}
+\usepackage{soul}
+\usepackage[normalem]{ulem}
+\usepackage{amsfonts,amssymb,amsmath, txfonts}
+\usepackage{graphicx,epsfig}
+\usepackage{psfrag}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{xcolor}
+\hypersetup{ linktoc=all,
+    colorlinks, linkcolor={brightpink},
+    citecolor={blue}, urlcolor={blue}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{rosy}{RGB}{230,235,252}
+\definecolor{myframetitle}{RGB}{90,89,170}
+\definecolor{myblocktitle}{RGB}{140,185,249}
+\definecolor{mytitle}{RGB}{10,80,26}
+
+\definecolor{darkgreen}{RGB}{27,130,45}
+\definecolor{darkblue}{rgb}{0,0,0.3}
+\definecolor{darkred}{rgb}{0.7,0,0}
+
+\definecolor{light gray}{RGB}{220,220,220}
+\definecolor{dark purple}{RGB}{108,0,217}
+\definecolor{pink}{RGB}{190,20,100}
+\definecolor{orang}{RGB}{193,63,0}
+\definecolor{green}{RGB}{11,98,17}
+\definecolor{darkpink}{RGB}{153,0,76}
+\definecolor{bluegreen}{RGB}{0,102,102}
+\definecolor{greenlagan}{RGB}{0,102,0}
+\definecolor{redgreen}{RGB}{102,102,0}
+\definecolor{Redgreen}{RGB}{153,76,0}
+\definecolor{vividviolet}{rgb}{0.62, 0.0, 1.0}
+\definecolor{amaranth}{rgb}{0.9, 0.17, 0.31}
+\definecolor{palatinateblue}{rgb}{0.15, 0.23, 0.89}
+\definecolor{brightpink}{rgb}{1.0, 0.0, 0.5}
+\definecolor{cornflowerblue}{rgb}{0.39, 0.58, 0.93}
+\definecolor{deepcarminepink}{rgb}{0.94, 0.19, 0.22}
+\definecolor{radicalred}{rgb}{1.0, 0.21, 0.37}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\red{\textcolor{red}}
+\def\blue{\textcolor{blue}}
+\def\green{\textcolor{green}}
+%
+%
+%\def\jcap{JCAP}
+%\def\lsim{\:\raisebox{-1.1ex}{$\stackrel{\textstyle<}{\sim}$}\:}
+\def\gsim{\:\raisebox{-1.1ex}{$\stackrel{\textstyle>}{\sim}$}\:}
+%\newcommand{\ba}{\begin{array}}
+%\newcommand{\ea}{\end{array}}
+%\newcommand{\be}{\begin{equation}}
+%\newcommand{\ee}{\end{equation}}
+%\newcommand{\bea}{\begin{eqnarray}}
+%\newcommand{\eea}{\end{eqnarray}}
+%\def\al{\alpha}
+\def\weff{w_{\tiny{\text{eff}}}}
+%\def\H0{\varmathbb{H0}}
+%\def\H0{\mathbbmtt{H0}}
+%\def\H0{\mathrsfs{H0}}
+%\def\H0{\mathds{H0}}
+%\def\H0{\mathbbb{H0}}
+\def\H0{{\text{H}\hspace*{-2.05mm}\text{H} 0\hspace*{-1.35mm}0\ }}
+
+%\def\mt{$\mu$-$\tau$}
+%\def\mnuf{${\cal M}_{\nu f }$}
+\def\lcdm{$\Lambda$CDM }
+%
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\beq{\begin{equation}}
+\def\eeq{\end{equation}}
+\def\bea{\begin{eqnarray}}
+\def\eea{\end{eqnarray}}
+\newcommand{\dd}{\textrm{d}}
+\newcommand{\nn}{\nonumber \\}
+
+\begin{document}
+
+
+
+\section{Introduction} 
+In \cite{Wong:2019kwg} the authors present $H_0$ constraints from 6 lenses. In the appendix they show that $H_0$ decreases with the redshift of the lens $z_{\textrm{lens}}$. In a follow-up paper \cite{Millon:2019slk}, an additional DES lens \cite{DES:2019fny} is added and systematics are explored. For one the lenses studied in \cite{Wong:2019kwg}, the $H_0$ determination is revisited with different assumptions finding a consistent result \cite{Shajib:2023uig}. This provides a consistency check on one of the lenses. In \cite{Birrer:2020tax} the assumptions in \cite{Wong:2019kwg} are revisited again. The paper concludes that both $H_0 \sim 73$ km/s/Mpc and $H_0 \sim 67$ km/s/Mpc are possible. Moving away from lensed QSOs, a recent paper gives a determination of $H_0$ from a lensed SN \cite{Kelly:2023mgv} (see also \cite{Kelly:2023wzm} for the time delay). 
+
+In \ref{tab:lenses} we record the lenses, $H_0$ determinations and $z_{\textrm{lens}}$. We focus on the $H_0$ determinations that assumed the (flat) $\Lambda$CDM model. 
+
+\begin{table}[htb]
+\centering
+\begin{tabular}{ccc}
+Lens & $H_0$ km/s/Mpc & $z_{\textrm{lens}}$ \\
+\hline
+\rule{0pt}{3ex} B1608+656 \cite{} &  $71.0^{+2.9}_{-3.3}$ \cite{Wong:2019kwg} & $0.6304$ \\ 
+\rule{0pt}{3ex} RXJ1131-1231 \cite{} & $78.2^{+3.4}_{-3.4}$ \cite{Wong:2019kwg} & $0.295$ \\ 
+\rule{0pt}{3ex} RXJ1131-1231 \cite{} & $77.1^{+7.3}_{-7.1}$ \cite{Shajib:2023uig} & $0.295$ \\ 
+\rule{0pt}{3ex} HE 0435-1223 \cite{} &  $71.7^{+4.8}_{-4.5}$ \cite{Wong:2019kwg}& $0.4546$ \\
+\rule{0pt}{3ex} SDSS 1206+4332 \cite{} &  $68.9^{+5.4}_{-5.1}$ \cite{Wong:2019kwg}& $0.745$  \\ 
+\rule{0pt}{3ex} WFI2033-4723 \cite{} &  $71.6^{+3.8}_{-4.9}$ \cite{Wong:2019kwg} & $0.6575$ \\ 
+\rule{0pt}{3ex} PG 1115+080 \cite{} & $81.1^{+8.0}_{-7.1}$ \cite{Wong:2019kwg} & $0.311$  \\
+\rule{0pt}{3ex} DES J0408-5354 \cite{DES:2017lgx} & $74.2^{+2.7}_{-3.0}$ \cite{DES:2019fny} & $0.597$  \\
+\rule{0pt}{3ex} MACS J1149.5+2223 (SN Refsdal) \cite{} & $64.8^{+4.4}_{-4.3}$ \cite{Kelly:2023mgv} & $0.54$  \\
+\end{tabular}
+\caption{\red{We can improve this table later by adding references to the lenses etc, we just need data for the moment.}}
+\label{tab:lenses}
+\end{table}
+
+\section{Analysis} 
+The analysis here is easy. A Gaussian or normal distribution always takes the form
+\be
+\label{normal}
+f(x) = A \exp \left( -\frac{1}{2} \frac{(x - \mu)^2}{\sigma^2} \right). 
+\ee
+There are three free parameters. $A$ is the scale, $\sigma$ denotes the standard deviation, essentially the width of the Gaussian, and $\mu$ corresponds to the peak. Gaussians appear everywhere in science, where we think of $\mu$ as a measurement and $\sigma$ as an error. So, the central values in $H_0$ in Table \ref{tab:lenses} correspond to $\mu$ and the errors correspond to $\sigma$. When $A = 1/(\sqrt{2 \pi}\sigma)$, the Gaussian is a normalised probability density function (PDF). This means that if we integrate over all possible values for $x$ we get unity, i. e. $\int_{-\infty}^{+\infty} f(x) d x= 1$ when $A = 1/(\sqrt{2 \pi} \sigma)$. When $A$ is not this special value, we have an unnormalised PDF. 
+
+Note that $H_0$ corresponds to $x$. If one defines an array of $H_0$ values in the range $50 < H_0 < 100$, we can evaluate each Gaussian at each $H_0$ point. This is more or less the probability of getting a given value of $H_0$ for a given PDF. Each line in Table \ref{tab:lenses} defines a new PDF, so we can combine them by simply evaluating each Gaussian on our $H_0$ array and multiplying the arrays. This gives us a new Gaussian and we fit back the function (\ref{normal}) to find $A, \mu, \sigma$ for this new Gaussian. $A$ can be any value, but $\mu$ tells us what value of $H_0$ is preferred by all the lines in Table \ref{tab:lenses} and $\sigma$ is the error. This is the first exercise. 
+
+The second exercise is to fit the line $y = m x + c$ to the data in Table \ref{tab:lenses} and determine the slope $m$. Here $x$ is $z_{\textrm{lens}}$ and $y$ is $H_0$. One expects an intercept at $H_0 \sim 80$ km/s/Mpc. 
+
+\section{Comments on Normal Distributions}
+Consider the two Gaussians:
+\be
+\label{gaussians}
+f(x) = \frac{1}{\sqrt{2 \pi} \sigma_1} \exp \left( -\frac{1}{2} \frac{(x - \mu_1)^2}{\sigma_1^2} \right), \quad g(y) = \frac{1}{\sqrt{2 \pi} \sigma_2} \exp \left( -\frac{1}{2} \frac{(y - \mu_2)^2}{\sigma_2^2} \right),  
+\ee
+centered on $\mu_i$ with standard deviation $\sigma_i$. 
+$f(x)$ and $g(x)$ are normalised and satisfy the integral
+\be
+\int_{-\infty}^{\infty} f(x) \dd x = \int_{-\infty}^{\infty} g(y) \dd y =  1. 
+\ee
+If $x$ and $y$ are independent, then the joint probability distribution $f(x) \dot g(y)$ is also normalised, i. e. 
+\be
+\int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} f(x) g(y) \dd x \dd y = 1. 
+\ee
+We can tailor this joint probability distribution to strong lensing where $x$ is one determination of $H_0$ from a lens and $y$ is another determination of $H_0$ from a second independent lens. The probability that both lenses give results in the range $65 \leq H_0 leq 75$ is easily assessed by integrating the the joint PDF in the appropriate range, 
+\be
+P = \int_{-65}^{+75} \int_{-65}^{+75} f(x) g(y) \dd x \dd y. 
+\ee
+
+
+
+Now consider two dice. The probability of rolling two 6's is $1/6 \times 1/6 = 1/36$. The probability of rolling the same number is $1 \times 1/6 = 1/6$. What is the probability of getting the same value of $H_0$ from two lenses? We should be able to write this probability as 
+\be
+P = \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} f(x) g(y) \delta (x-y) \dd x \dd y
+\ee
+where the delta function $\delta(x-y)$ forces that $x$ and $y$ agree. Noting that
+\be
+\int_{-\infty}^{+\infty} f(y) \delta (x-y) \dd y  = f(x), 
+\ee
+we can rewrite this probability as 
+\bea
+\label{product}
+P &=& \int_{-\infty}^{+\infty} f(x) g(x) \dd x,  \nn
+&=& \int_{-\infty}^{+\infty} \frac{1}{2 \pi \sigma_1 \sigma_2 } \exp \left( -\frac{1}{2} \frac{(x- \mu)^2}{\sigma^2} \right) \exp \left( - \frac{1}{2} \frac{(\mu_1-\mu_2)^2}{\sigma_1^2 + \sigma_2^2} \right) \dd x, 
+\eea
+where in the second line onwards we have specified to Gaussians (\ref{gaussians}) and introduced the new parameters: 
+\bea
+\sigma &=& \frac{\sigma_1 \sigma_2}{\sqrt{\sigma_1^2+\sigma_2^2}}, \nn
+\mu &=& \frac{\mu_1 \sigma_2^2 + \mu_2 \sigma_1^2}{\sigma_1^2 + \sigma_2^2}. 
+\eea
+Note that when $\sigma_1 = \sigma_2$, the peak of the joint PDF is midway between the peaks of the original PDFs, $\mu = \frac{1}{2} (\mu_1 + \mu_2)$ and the standard deviation is reduced by a factor of $\sqrt{2}$, $\sigma = \sigma_1/\sqrt{2}$. Note that one pays a penalty in the probability. The further away $\mu_1$ and $\mu_2$ are from one another, the smaller the normalisation. This is counteracted by larger values of $\sigma_1$ and $\sigma_2$.   
+
+\red{My understanding is that cosmologists multiply PDFs from strong lensing time delay. This in itself is not a problem as this is simply assuming that $x$ and $y$ are tracking the same variable. However, very little consideration is given to normalisation. Note that if $\mu_1$ and $\mu_2$ are too far apart, then the probability of them being the same is close to zero. There is some discussion in the cosmology literature about what is a ``tension" and what is ``consistent". Some people argue that tensions begin at $2 \sigma$, some argue that they begin at $3 \sigma$. What they mean by $\sigma$ here is essentially 
+\be
+\sigma = \frac{| \mu_1 - \mu_2 |}{\sqrt{\sigma_1^2 + \sigma_2^2}}. 
+\ee
+Question: can we see this in the probabilities?}
+
+\section{MCMC versus combining PDFs}
+Let us focus on the 6 lenses from the paper \cite{Wong:2019kwg}. We make all errors Gaussian by inflating errors, i. e. $H_0 = 71.0^{+2.9}_{-3.3}$ km/s/Mpc $ \rightarrow$ $H_0 = 71.0 \pm 3.3$ km/s/Mpc. Combining the Gaussians into a single PDF and fitting back a Gaussian, we get
+\be
+H_0 = 73.44 \pm 1.79 \textrm{ km/s/Mpc}.
+\ee
+
+We can now see how we get this from MCMC. We can define a likelihood, 
+\be
+\chi^2 = \frac{(H_0-71.0)^2}{(3.3)^2} + \frac{(H_0-78.2)^2}{(3.4)^2} + \frac{(H_0-71.7)^2}{(4.8)^2} + \frac{(H_0-68.9)^2}{(5.4)^2} + \frac{(H_0-71.6)^2}{(4.9)^2} + \frac{(H_0-81.1)^2}{(8.0)^2}. 
+\ee
+Marginalising over $H_0$, we find 
+\be
+H_0 = 73.44^{+1.75}_{-1.78} \textrm{ km/s/Mpc}.
+\ee
+\red{One could repeat this with Fisher matrix analysis.}
+The analysis here simply assumes Gaussian constraints and some arbitrary, yet representative numbers. Thus, in general we can expect that we can simply combine Gaussian PDFs to get constraints. 
+
+\subsection{Probabilities}
+Note, when we combine probabilities and gets a final Gaussian, one expects the probability of the variable being within $3 \sigma$ to be more or less unity. We can test this using the joint probabilities introduced earlier. Let's consider two Gaussians with the same error $\sigma_1 = \sigma_2 = 1$ and fix $\mu_1 = 70$ km/s/Mpc, while moving the position of the second Gaussian $\mu_2$ further away. Whether we multiply the PDFs and fit a Gaussian or simply use earlier expressions, we find the $\mu$ and $\sigma$ values in Table \ref{tab:symmetric_normals}. $\mu$ is simply midway between $\mu_1$ and $\mu_2$ and $\sigma$ is the same throughout. Once we have the combined PDF, we fix a $3 \sigma$ window around it, but return to our original two PDFs and calculate the probability $P_1$ that these PDFs are in the same window. $P_2$ and $P_3$ are the probabilities that one of the PDFs are in the window, while $P_4$ is the probability that neither is in the window. By construction $P_1 + P_2 + P_3 + P_4 = 1$. It is interesting to note that when $|\mu_1 - \mu_2|/\sqrt{\sigma_1^2+\sigma_2^2} = 3$, we get $P_1 = P_2 = P_3 = P_4$. In short, up to this separation between the Gaussians, the combined PDF is the most probable outcome. \red{Interestingly, if we switch to looking at a $4 \sigma$ window about $\mu$, then this switch over happens at $|\mu_1 - \mu_2|/\sqrt{\sigma_1^2+\sigma_2^2} = 4$. Changing $\sigma_1 = \sigma_2$, provided the errors remain the same, does not change these results. Note that $|\mu_1 - \mu_2|/\sqrt{\sigma_1^2+\sigma_2^2}$ is the factor in the product (\ref{product}).}  
+
+Let us now increase $\sigma_2$ so that $\sigma_2=2 \sigma_1$. We again focus on the $3 \sigma$ window from $\mu$. The results of the same exercise as shown in Table \ref{tab:antisymmetric_normals}. 
+
+
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{c|c|c|c|c|c|c|c}
+    $\mu_2$ & $\mu$ & $\sigma$ & $\frac{|\mu_1-\mu_2|}{\sqrt{\sigma_1^2+\sigma_2^2}}$ & $P_1$ & $P_2$ & $P_3$ & $P_4$ \\
+    \hline
+    70 & 70 & 0.707 & 0 & 0.933 & 0.033 & 0.033 & 0.001\\
+    69 & 69.5 & 0.707 & 0.707 & 0.890 & 0.054 & 0.054 & 0.003 \\
+    68 & 69 & 0.707 & 1.414 & 0.753 & 0.115 & 0.115 & 0.017 \\
+     67 & 68.5 & 0.707 & 2.121 & 0.537 & 0.196 & 0.196 & 0.071 \\
+     66 & 68 & 0.707 & 2.828 & 0.301 & 0.248 & 0.248 & 0.204 \\
+      65.758 & 67.879 & 0.707 & 3.000 & 0.25 & 0.25 & 0.25 & 0.25 \\
+     65 & 67.5 & 0.707 & 3.536 & 0.124 & 0.228 & 0.228 & 0.419 \\
+    \end{tabular}
+    \caption{}
+    \label{tab:symmetric_normals}
+\end{table}
+
+\begin{table}[htb]
+    \centering
+    \begin{tabular}{c|c|c|c|c|c|c|c}
+    $\mu_2$ & $\mu$ & $\sigma$ & $\frac{|\mu_1-\mu_2|}{\sqrt{\sigma_1^2+\sigma_2^2}}$ & $P_1$ & $P_2$ & $P_3$ & $P_4$ \\
+    \hline
+    70 & 70 & 0.894 & 0 & 0.814 & 0.178 & 0.006 & 0.001\\
+    69 & 69.8 & 0.894 & 0.447 & 0.779 & 0.212 & 0.007 & 0.002 \\
+    68 & 69.6 & 0.894 & 0.894 & 0.681 & 0.306 & 0.008 & 0.004 \\
+     67 & 69.4 & 0.894 & 1.342 & 0.540 & 0.441 & 0.011 & 0.009 \\
+     66 & 69.2 & 0.894 & 1.789 & 0.385 & 0.585 & 0.012 & 0.0.018 
+    \end{tabular}
+    \caption{}
+    \label{tab:antisymmetric_normals}
+\end{table}
+
+\section{Cosmic Chronometers}
+One should fit the two parameter $\Lambda$CDM model 
+\be
+\label{lcdm}
+H(z) = H_0 \sqrt{1-\Omega_m + \Omega_m (1+z)^3}
+\ee
+to the cosmic chronometer data (I have included the new data point from \cite{Tomasetti:2023kek}) and check that one gets back canonical values, $H_0 \sim 70$ km/sec/Mpc and $\Omega_m \sim 0.3$. 
+
+In the literature, one finds various groups that attempt to reconstruct the function $H(z)$ directly from the data without assuming a parametric model \cite{Gomez-Valent:2018hwc, Haridasu:2018gqm}, e. g. (\ref{lcdm}).
+
+\section{QSOs}
+Risaliti \& Lusso have been attempting to build a distance ladder in QSOs \cite{Risaliti:2015zla, Risaliti:2018reu, Lusso:2020pdb}. This rests upon the assumption the X-ray and UV luminosities are related through the following formula: 
+\be
+\label{luminosities}
+\log_{10} L_X = \beta + \gamma \log_{10} L_{UV}. 
+\ee
+where $\beta$ and $\gamma$ denote constants. It should be stressed that this is an assumption. Once one adopts (\ref{luminosities}), one can use the relation between luminosity and flux 
+\be
+F = \frac{L}{4 \pi D_{L}^2}
+\ee
+where $D_{L}(z)$ is the luminosity distance ($H(z)$ comes from (\ref{lcdm})),
+\be
+D_{L}(z) = c (1+z) \int_0^z \frac{1}{H(z^{\prime})} \dd z^{\prime}, 
+\ee
+to get a flux relation: 
+\be
+\log_{10} F_{X} = \beta + \gamma \log_{10} F_{UV} + (\gamma-1) \log_{10} (4 \pi D_{L}^2). 
+\label{fluxes}
+\ee
+Note that we have two cosmological parameters $(H_0, \Omega_)$ and two nuisance parameters $(\beta, \gamma)$. The best fit values are found by extremising the likelihood \cite{Risaliti:2015zla}: 
+\be
+\label{likelihood}
+\mathcal{L} = - \frac{1}{2} \sum_{i=1}^N \left[ \frac{ (\log_{10} F_{X,i}^{\textrm{obs}} - \log_{10} F_{X,i}^{\textrm{model}})^2}{s_i^2} + \ln (2 \pi s_i^2)\right]
+\ee
+where the error $s_i^2 = \sigma_i^2 + \delta^2$ includes an additional intrinsic dispersion term $\delta$. As a result, one is extremising with respect to 5 parameters. 
+
+
+Both cosmic chronometers and QSOs, in contrast to CMB, BAO and Type Ia supernovae, are emerging cosmological probes, \cite{Moresco:2022phi}. What this means in practice is that they are not top tier, but second tier observables.  
+
+
+
+\begin{thebibliography}{99}
+
+\bibitem{Wong:2019kwg}
+K.~C.~Wong, S.~H.~Suyu, G.~C.~F.~Chen, C.~E.~Rusu, M.~Millon, D.~Sluse, V.~Bonvin, C.~D.~Fassnacht, S.~Taubenberger and M.~W.~Auger, \textit{et al.}
+``H0LiCOW \textendash{} XIII. A 2.4 per cent measurement of H0 from lensed quasars: 5.3\ensuremath{\sigma} tension between early- and late-Universe probes,''
+Mon. Not. Roy. Astron. Soc. \textbf{498} (2020) no.1, 1420-1439
+%doi:10.1093/mnras/stz3094
+[arXiv:1907.04869 [astro-ph.CO]].
+%804 citations counted in INSPIRE as of 18 May 2023
+
+\bibitem{Millon:2019slk}
+M.~Millon, A.~Galan, F.~Courbin, T.~Treu, S.~H.~Suyu, X.~Ding, S.~Birrer, G.~C.~F.~Chen, A.~J.~Shajib and D.~Sluse, \textit{et al.}
+``TDCOSMO. I. An exploration of systematic uncertainties in the inference of $H_0$ from time-delay cosmography,''
+Astron. Astrophys. \textbf{639} (2020), A101
+%doi:10.1051/0004-6361/201937351
+[arXiv:1912.08027 [astro-ph.CO]].
+%114 citations counted in INSPIRE as of 18 May 2023
+
+\bibitem{DES:2019fny}
+A.~J.~Shajib \textit{et al.} [DES],
+``STRIDES: a 3.9 per cent measurement of the Hubble constant from the strong lens system DES J0408\ensuremath{-}5354,''
+Mon. Not. Roy. Astron. Soc. \textbf{494} (2020) no.4, 6072-6102
+%doi:10.1093/mnras/staa828
+[arXiv:1910.06306 [astro-ph.CO]].
+%147 citations counted in INSPIRE as of 18 May 2023
+
+\bibitem{Shajib:2023uig}
+A.~J.~Shajib, P.~Mozumdar, G.~C.~F.~Chen, T.~Treu, M.~Cappellari, S.~Knabel, S.~H.~Suyu, V.~N.~Bennert, J.~A.~Frieman and D.~Sluse, \textit{et al.}
+``TDCOSMO. XIII. Improved Hubble constant measurement from lensing time delays using spatially resolved stellar kinematics of the lens galaxy,''
+Astron. Astrophys. \textbf{673} (2023), A9
+%doi:10.1051/0004-6361/202345878
+[arXiv:2301.02656 [astro-ph.CO]].
+%3 citations counted in INSPIRE as of 18 May 2023
+
+\bibitem{Birrer:2020tax}
+S.~Birrer, A.~J.~Shajib, A.~Galan, M.~Millon, T.~Treu, A.~Agnello, M.~Auger, G.~C.~F.~Chen, L.~Christensen and T.~Collett, \textit{et al.}
+``TDCOSMO - IV. Hierarchical time-delay cosmography \textendash{} joint inference of the Hubble constant and galaxy density profiles,''
+Astron. Astrophys. \textbf{643} (2020), A165
+%doi:10.1051/0004-6361/202038861
+[arXiv:2007.02941 [astro-ph.CO]].
+%223 citations counted in INSPIRE as of 18 May 2023
+
+\bibitem{Kelly:2023mgv}
+P.~L.~Kelly, S.~Rodney, T.~Treu, M.~Oguri, W.~Chen, A.~Zitrin, S.~Birrer, V.~Bonvin, L.~Dessart and J.~M.~Diego, \textit{et al.}
+``Constraints on the Hubble constant from Supernova Refsdal's reappearance,''
+%doi:10.1126/science.abh1322
+[arXiv:2305.06367 [astro-ph.CO]].
+%1 citations counted in INSPIRE as of 18 May 2023
+
+\bibitem{DES:2017lgx}
+H.~Lin \textit{et al.} [DES],
+``Discovery of the Lensed Quasar System DES J0408-5354,''
+Astrophys. J. Lett. \textbf{838} (2017) no.2, L15
+%doi:10.3847/2041-8213/aa624e
+[arXiv:1702.00072 [astro-ph.GA]].
+%28 citations counted in INSPIRE as of 18 May 2023
+
+ \bibitem{Kelly:2023wzm}
+P.~L.~Kelly, S.~Rodney, T.~Treu, S.~Birrer, V.~Bonvin, L.~Dessart, R.~J.~Foley, A.~V.~Filippenko, D.~Gilman and S.~Jha, \textit{et al.}
+``The Magnificent Five Images of Supernova Refsdal: Time Delay and Magnification Measurements,''
+Astrophys. J. \textbf{948} (2023) no.2, 93
+%doi:10.3847/1538-4357/ac4ccb
+[arXiv:2305.06377 [astro-ph.CO]].
+%1 citations counted in INSPIRE as of 18 May 2023
+
+\bibitem{Tomasetti:2023kek}
+E.~Tomasetti, M.~Moresco, N.~Borghi, K.~Jiao, A.~Cimatti, L.~Pozzetti, A.~C.~Carnall, R.~J.~McLure and L.~Pentericci,
+%``A new measurement of the expansion history of the Universe at z=1.26 with cosmic chronometers in VANDELS,''
+[arXiv:2305.16387 [astro-ph.CO]].
+%0 citations counted in INSPIRE as of 16 Jun 202
+
+\bibitem{Gomez-Valent:2018hwc}
+A.~G\'omez-Valent and L.~Amendola,
+%``$H_0$ from cosmic chronometers and Type Ia supernovae, with Gaussian Processes and the novel Weighted Polynomial Regression method,''
+JCAP \textbf{04} (2018), 051
+%doi:10.1088/1475-7516/2018/04/051
+[arXiv:1802.01505 [astro-ph.CO]].
+%173 citations counted in INSPIRE as of 16 Jun 2023
+
+\bibitem{Haridasu:2018gqm}
+B.~S.~Haridasu, V.~V.~Lukovi\'c, M.~Moresco and N.~Vittorio,
+%``An improved model-independent assessment of the late-time cosmic expansion,''
+JCAP \textbf{10} (2018), 015
+%doi:10.1088/1475-7516/2018/10/015
+[arXiv:1805.03595 [astro-ph.CO]].
+%92 citations counted in INSPIRE as of 16 Jun 2023
+
+\bibitem{Moresco:2022phi}
+M.~Moresco, L.~Amati, L.~Amendola, S.~Birrer, J.~P.~Blakeslee, M.~Cantiello, A.~Cimatti, J.~Darling, M.~Della Valle and M.~Fishbach, \textit{et al.}
+%``Unveiling the Universe with emerging cosmological probes,''
+Living Rev. Rel. \textbf{25} (2022) no.1, 6
+%doi:10.1007/s41114-022-00040-z
+[arXiv:2201.07241 [astro-ph.CO]].
+%71 citations counted in INSPIRE as of 16 Jun 2023
+
+
+\bibitem{Risaliti:2015zla}
+G.~Risaliti and E.~Lusso,
+%``A Hubble Diagram for Quasars,''
+Astrophys. J. \textbf{815} (2015), 33
+%doi:10.1088/0004-637X/815/1/33
+[arXiv:1505.07118 [astro-ph.CO]].
+%146 citations counted in INSPIRE as of 16 Jun 2023
+
+\bibitem{Risaliti:2018reu}
+G.~Risaliti and E.~Lusso,
+%``Cosmological constraints from the Hubble diagram of quasars at high redshifts,''
+Nature Astron. \textbf{3} (2019) no.3, 272-277
+%doi:10.1038/s41550-018-0657-z
+[arXiv:1811.02590 [astro-ph.CO]].
+%213 citations counted in INSPIRE as of 16 Jun 2023
+
+\bibitem{Lusso:2020pdb}
+E.~Lusso, G.~Risaliti, E.~Nardini, G.~Bargiacchi, M.~Benetti, S.~Bisogni, S.~Capozziello, F.~Civano, L.~Eggleston and M.~Elvis, \textit{et al.}
+%``Quasars as standard candles III. Validation of a new sample for cosmological studies,''
+Astron. Astrophys. \textbf{642} (2020), A150
+%doi:10.1051/0004-6361/202038899
+[arXiv:2008.08586 [astro-ph.GA]].
+%79 citations counted in INSPIRE as of 16 Jun 2023
+
+
+
+\end{thebibliography}
+\end{document}
