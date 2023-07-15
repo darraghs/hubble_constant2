@@ -1,0 +1,740 @@
+\documentclass[a4paper,11pt]{article}
+\pdfoutput=1 % if your are submitting a pdflatex (i.e. if you have
+             % images in pdf, png or jpg format)
+\usepackage{mathrsfs, amssymb, amsmath}  
+\usepackage{comment}
+\usepackage{dcolumn}
+\usepackage{multirow}
+\usepackage{color}
+\usepackage{amsfonts,amssymb,amsmath, txfonts}
+\usepackage{float}
+
+\def\red{\textcolor{red}}
+
+\usepackage{jcappub} % for details on the use of the package, please
+                     % see the JCAP-author-manual
+
+\usepackage[T1]{fontenc} % if needed
+
+
+
+\title{\boldmath Overcoming biases in Markov Chain Monte Carlo marginalisation to elucidate $\Lambda$CDM tensions }
+
+
+%% %simple case: 2 authors, same institution
+%% \author{A. Uthor}
+%% \author{and A. Nother Author}
+%% \affiliation{Institution,\\Address, Country}
+
+% more complex case: 4 authors, 3 institutions, 2 
+\author[a,1]{Eoin \'O Colg\'ain}
+\author[b]{Saeed Pourojaghi}
+\author[b, c]{M. M. Sheikh-Jabbari}
+\author[a]{Darragh Sherwin}
+
+% The "\note" macro will give a warning: "Ignoring empty anchor..."
+% you can safely ignore it.
+
+\affiliation[a]{Atlantic Technological University, Ash Lane, Sligo, Ireland}
+\affiliation[b]{School of Physics, Institute for Research in Fundamental Sciences (IPM), P.O.Box 19395-5531, Tehran, Iran}
+\affiliation[c]{ICTP...}
+
+% e-mail addresses: one for each author, in the same order as the authors
+\emailAdd{eoin.ocolgain@atu.ie}
+\emailAdd{}
+\emailAdd{}
+\emailAdd{darragh.sherwin@research.atu.ie}
+
+
+
+
+\abstract{Abstract...}
+
+
+
+\begin{document}
+\maketitle
+\flushbottom
+
+\section{Introduction}
+\label{sec:intro}
+The flat $\Lambda$CDM model is the minimal model that fits Cosmic Microwave Background (CMB) data. Remarkably, data from the Planck satellite \cite{Planck:2018vyg} constrains the $\Lambda$CDM model to sub-percent errors, thereby not only providing the strongest constraints, but also a concrete \textit{prediction} for independent cosmological probes in the late Universe. The unmitigated success of the $\Lambda$CDM model is that CMB, Type Ia supernovae \cite{Riess:1998cb, Perlmutter:1998np} and baryon acoustic oscillations (BAO) \cite{Eisenstein:2005su} agree on a $\Lambda$CDM Universe that is approximately $30 \%$ matter. Thus, one key prediction of the Planck-$\Lambda$CDM model has been confirmed by late Universe cosmological probes. Moreover, given this non-trivial agreement, any discrepancies that arise elsewhere constitute profound puzzles. 
+
+Nevertheless, one cannot define any \textit{model} for a dynamical system, in particular a complicated system such as the Universe, using data from a single time slice \footnote{Here, we mean CMB data with an effective redshift $z \sim 1100$.}. At best, one has predictions and not a model. In recent years, key predictions of Planck data have been challenged by late Universe determinations of the Hubble constant $H_0$ \cite{Riess:2021jrx, Freedman:2021ahq, Pesce:2020xfe, Blakeslee:2021rqi, Kourkchi:2020iyz} and the $S_8:= \sigma_8 \sqrt{\Omega_m/0.3}$ parameter \cite{HSC:2018mrq, KiDS:2020suj, DES:2021wwk, Boruah:2019icj, Said:2020epb}. Given the diversity of the late Universe probes (see reviews \cite{Perivolaropoulos:2021jda, Abdalla:2022yfr}), it is highly unlikely that any single systematic can be found to explain the discrepancies. That being said, in astrophysics one can never preclude systematics; 3 decades after Phillips' seminal paper \cite{Phillips:1993ng}, we are still debating a widely recognised ad hoc step function correction for the mass of the host galaxy in Type Ia SN \cite{} \red{(add references)}. In short, debates revolving around systematics can exceed the life-span of the average scientific career! 
+
+Thus, it is more expedient to assume that the $\Lambda$CDM model is breaking down and to look for tell-tale signatures of model breakdown. For physicists, \textit{model breakdown comes about when model fitting parameters return discrepant values at different time slices or epochs}. Translated into astronomy, this equates to discrepant cosmological parameters in different redshift ranges. For the astute observer, it should come as no surprise that $\Lambda$CDM tensions span early (high redshift) and late Universe (low redshift) observables. Nevertheless, the comparison involves apples and oranges, as early and late Universe observables are not the same. One is confronted with a rich set of potential systematics. 
+
+Within the context of $\Lambda$CDM tensions, it was recently observed that the integration constant from the Friedmann equations, aka the Hubble constant $H_0$, picks up redshift dependence whenever our model assumption - required to close the Friedmann equations - disagrees with the Hubble parameter $H(z)$ extracted from observations \cite{Krishnan:2020vaf, Krishnan:2022fzz} \footnote{One is free to speculate about the nature of the missing physics \cite{Liao:2020zko, Montani:2023xpd}.}. This represents an irrefutable prediction from mathematics, i. e. a prediction that is independent of systematics. Note that $H_0$ cannot pick up redshift dependence, and thereby evolve with redshift, unless correlated cosmological parameters also exhibit redshift dependence. If this happens in the late Universe, $H_0$ is correlated with matter density $\Omega_m$, an integration constant in the matter continuity equation, at the background level, while $\Omega_m$ is correlated with $S_8 \propto \sigma_8$ at the perturbative level. Thus, there is at least one simple scenario where ``$H_0$ tension" and ``$S_8$ tension" are not independent and simply symptoms of $\Lambda$CDM model breakdown. 
+
+The next relevant question is where is the evidence for evolving cosmological parameters in the late Universe? Starting with strong lensing time delay \cite{Wong:2019kwg} (see appendix) 
+\footnote{Systematics are explored in \cite{Millon:2019slk} and the descending trend is not an obvious systematic. The lensed system RXJ1131−1231 \cite{}, which partly drives the trend, has recently been re-analysed using spatially resolved stellar kinematics of the host galaxy \cite{Shajib:2023uig}, and the higher $H_0$ value remains robust, admittedly with inflated errors. As TDCOSMO project to analyse 40 lenses, the prospect of a discovery of a descending $H_0$ trend assuming the $\Lambda$CDM model remain strong.}, descending trends of $H_0$ with redshift have been reported in Type Ia supernovae \cite{Dainotti:2021pqg} (see also \cite{}) and combinations of data sets \cite{Dainotti:2022bzg}. On the other hand, larger values of $\Omega_m$ have been noted in high redshift observables, primarily quasars, but also Type Ia SN \cite{}. Note, as emphasised earlier, $H_0$ cannot evolve unless another fitting parameter compensates. Moreover, mock analysis reveals that evolution of best fit $(H_0, \Omega_m)$ cannot be precluded, and is conversely likely, in either observational Hubble data (OHD) \textit{or} angular diameter distance data \textit{or} luminosity distance data \cite{Colgain:2022tql}. We stress that this result \textit{rests on mock analysis}. It is a mathematical statement about the $\Lambda$CDM model that is independent of systematics. Separately, redshift evolution of $S_8$ or $\sigma_8$ has been reported in galaxy cluster number counts and Lyman-$\alpha$ spectra \cite{Esposito:2022plo}, $f \sigma_8$ constraints from peculiar velocities and redshift space distortions (RSD) 
+ \cite{Adil:2023jtu}, comparison combining weak \cite{HSC:2018mrq, KiDS:2020suj, DES:2021wwk} and CMB lensing \cite{ACT:2023dou, ACT:2023kun}. What is important here is that these observations restrict the evolution in $S_8$ to the late Universe. In ref. \cite{ACT:2023ipp}, the possibility was raised that \textit{``tracers at higher redshift and probing larger scales prefer higher $S_8$"}. Nevertheless, one can argue against evolution with scale on the grounds that cosmic shear \cite{HSC:2018mrq, KiDS:2020suj, DES:2021wwk}, which is sensitive to smaller scales (larger $k$), and peculiar velocity constraints \cite{}, which are sensitive to large scales (smaller $k$), both prefer lower values of $S_8$. Thus, systematics aside, redshift evolution is the only game in town. 
+
+ The purpose of this letter is to revisit the analysis presented in \cite{}, where the evidence for evolution was quanitied on the basis of mock simulations and not Markov Chain Monte Carlo (MCMC), a technique ubiquitous in cosmology. The fundamental problem is that once one bins low redshift data and studies evolution of cosmological parameters with bin redshift, one quickly encounters projection effects, more generally volume effects, in MCMC analyses. The most striking demonstration of the resulting bias is that the peaks of MCMC posteriors no longer coincide with the extremum of the likelihood. Ultimately, this bias is expected to come about because one is working in a non-Gaussian regime in the parameter space of the $\Lambda$CDM model \cite{} \footnote{Observe once again that the findings in \cite{} rest on mock data that is Gaussian by construction, so any non-Gaussianities must come from the model through the redshift binning.}.   
+
+\section{A bias in MCMC marginalisation}
+Our basic motivation here is to consider the high redshift behaviour of the Hubble parameter $H(z)$ in the matter dominated regime, $0.7 \lesssim z$. Neglecting the CMB, late Universe constraints typically become sparse beyond $z = 1$. To put this context in context, in the most up-to-date Pantheon+ SN sample \cite{Scolnic:2021amr, Brout:2022vxf}, there are a mere 25 SN spanning the range $1 \lesssim z \lesssim 2.26$, which admittedly offer little constraining power \footnote{The same high redshift sample returns $\Omega_m > 1$ best fits when confronted to the $\Lambda$CDM model and the traditional $0 \leq \Omega_m \leq 1$ prior is relaxed \cite{Malekjani:2023dky}. Such behaviour is difficult to preclude in mock analysis, since it can arise with finite probability once one bins data \cite{Colgain:2022tql}.}. Baryon Acoustic Oscillation (BAO) data at similar redshifts is also relatively sparse SDSS constraints reduce to four data points at effective redshifts of $z = 1.48$ \cite{Hou:2020rse, Neveux:2020voa} and $z = 2.33$  \cite{duMasdesBourboux:2020pck}. Note that BAO assumes a fiducial cosmology, so it is model dependent. 
+
+Nevertheless, 
+
+In contrast, the cosmic chronometer (CC) program \cite{Jimenez:2001gg} makes no assumption about the cosmology and instead relies upon astrophysics. However, as is clear from Fig. 9 of ref.  \cite{Tomasetti:2023kek} beyond $z=1$ the error bars are large enough that a horizontal line corresponding to $H(z) = \textrm{constant}$ can almost be interpolated through the error bars. In contrast, we expect the (flat) $\Lambda$CDM model to simplify in the matter dominated regime, 
+\be
+H(z) = H_0 \sqrt{1-\Omega_m + \Omega_m (1+z)^3} \xrightarrow[z \gg 0]{} H_0 \sqrt{\Omega_m} (1+z)^{\frac{3}{2}}, 
+\ee
+and a constant $H(z)$ is clearly inconsistent with the expected $H(z) \sim (1+z)^{\frac{3}{2}}$ behaviour. Our first task is to quantify the extent of this disagreement. 
+
+\section{Profile Distributions}
+
+\section{A tension with Planck}
+
+\section{Discussion}
+
+\section{Analysis}
+The first thing we can do is fit the $\Lambda$CDM model with no approximation to the CC data in the interval. We employ uniform priors $H_0 \in [0, 200]$ and $\Omega_m \in [0, 1]$ and the results are shown in Table \ref{tab:LCDM_CC}. We introduce a minimum redshift $z_{\textrm{min}}$ and remove data points below $z_{\textrm{min}}$. As is clear from Fig. \ref{fig:CC} since the error bars increase beyond $z \sim 1$, we expect the best fit Hubble parameter $H(z)$ to flatten as we increase $z_{\textrm{min}}$. This trend is documented in Table \ref{tab:LCDM_CC}. We estimate the errors using two approaches, a Fisher matrix approach outlined in the appendix and Markov Chain Monte Carlo (MCMC). The former by construction leads to Gaussian errors, whereas the errors in the former may be non-Gaussian. A comparison between the results shows that as we increase $z_{\textrm{min}}$, MCMC inferences become non-Gaussian, as is evident by the asymmetric errors in $\Omega_m$, where the errors are larger in the direction of increasing $\Omega_m$. This trend is driven by non-Gaussian tails, which are expected even in mock data, and as a result, are evident with observed data. See Fig. \ref{fig:CCsplit1} for a concrete realisation, where the secondary peak in the $H_0$ posterior is a projection effect due to the non-Gaussian tails in the $\Omega_m$ posterior.  
+
+Evidently, given the non-Gaussian posteriors, care is required when interpreting the significance of the trend towards a non-evolving (horizontal) $H(z)$ at higher redshifts in Fig. \ref{fig:CC}. We cannot use the errors from the Fisher matrix as we are clearly in a non-Gaussian regime, whereas MCMC inferences are impacted by projection effects resulting in the secondary peak in Fig. \ref{fig:CCsplit1}. For this reason, we resort to mock analysis. To begin, we run an MCMC exploration of the full CC data set with a likelihood based on the $\Lambda$CDM model. The resulting posteriors are more or less Gaussian with $H_0 = 67.69^{+3.02}_{-3.07}$ km/s/Mpc and $\Omega_m = 0.329^{+0.064}_{-0.056}$. For each entry in the MCMC chain (approximately 15,000 entries in total), we generate a new realisation of the 8 high redshift data points $(z > 1)$ that are by construction statistically consistent with both the best fits from the full sample and also the Planck-$\Lambda$CDM values \cite{Planck:2018vyg}. More concretely, for each $(H_0, \Omega_m)$ entry in our MCMC chain, we displace the data points to the corresponding $\Lambda$CDM Hubble parameter before generating new data points in a normal distribution where the errors serve as standard deviations. We then fit back the $\Lambda$CDM model to each realisation of the mock data and record the best fit $(H_0, \Omega_m)$ values, which give us a distribution of expected $(H_0, \Omega_m)$ best fits. The distributions are presented in Fig. \ref{fig:CCsims} alongside the best fits from observed data. Throughout, we assume canonical values $(H_0, \Omega_m) = (70, 0.3)$ for the initial guess for the fitting algorithm. Owing to our bounds, best fits can saturate our bounds, i. e. $\Omega_m = 0$ and $\Omega_m = 1$ and this leads to a pile up of best fits at $\Omega_m = 0$ and $\Omega_m = 1$ in Fig. \ref{fig:CCsims}. We could remove these effects to remove the presentation of the PDFs, but it is useful to retain them, as they provide a consistency check. More concretely, the median or 50$^{\textrm{th}}$ percentile, $(H_0, \Omega_m) = (68.32, 0.321)$ agrees very well with the mock input parameters, thereby demonstrating that there are as many best fits above as below the best fit parameters that we injected in the mocking procedure. This provides a consistency check. We find that probability of a more extreme (larger) $H_0$ value to be $p = 0.022$, while the probability of a more extreme (smaller) $\Omega_m$ value to be $p = 0.035$, respectively. Converted into a Gaussian statistic, these correspond to $2 \sigma$ and $1.8 \sigma$, respectively, for a one-sided normal distribution. Note, some difference is expected here, as the peak of the best fit $\Omega_m$ distribution gets shifted to lower values with increasing redshift \cite{Colgain:2022tql}. 
+
+Here follow some examples of common features that you may wanto to use
+or build upon.
+
+For internal references use label-refs: see section~\ref{sec:intro}.
+Bibliographic citations can be done with cite: refs.~\cite{a,b,c}.
+When possible, align equations on the equal sign. The package
+\texttt{amsmath} is already loaded. See \eqref{eq:x}.
+\begin{equation}
+\label{eq:x}
+\begin{split}
+x &= 1 \,,
+\qquad
+y = 2 \,,
+\\
+z &= 3 \,.
+\end{split}
+\end{equation}
+Also, watch out for the punctuation at the end of the equations.
+
+
+If you want some equations without the tag (number), please use the available
+starred-environments. For example:
+\begin{equation*}
+x = 1
+\end{equation*}
+
+The amsmath package has many features. For example, you can use use
+\texttt{subequations} environment:
+\begin{subequations}\label{eq:y}
+\begin{align}
+\label{eq:y:1}
+a & = 1
+\\
+\label{eq:y:2}
+b & = 2
+\end{align}
+and it will continue to operate across the text also.
+\begin{equation}
+\label{eq:y:3}
+c = 3
+\end{equation}
+\end{subequations}
+The references will work as you'd expect: \eqref{eq:y:1},
+\eqref{eq:y:2} and \eqref{eq:y:3} are all part of \eqref{eq:y}.
+
+A similar solution is available for figures via the \texttt{subfigure}
+package (not loaded by default and not shown here).
+All figures and tables should be referenced in the text and should be
+placed at the top of the page where they are first cited or in
+subsequent pages. Positioning them in the source file
+after the paragraph where you first reference them usually yield good
+results. See figure~\ref{fig:i} and table~\ref{tab:i}.
+
+\begin{figure}[tbp]
+\centering 
+\includegraphics[width=.45\textwidth,trim=0 380 0 200,clip]{example-image}
+\hfill
+\includegraphics[width=.45\textwidth,angle=180]{example-image}
+\caption{\label{fig:i} Always give a caption.}
+\end{figure}
+
+\begin{table}[tbp]
+\centering
+\begin{tabular}{|lr|c|}
+\hline
+x&y&x and y\\
+\hline
+a & b & a and b\\
+1 & 2 & 1 and 2\\
+$\alpha$ & $\beta$ & $\alpha$ and $\beta$\\
+\hline
+\end{tabular}
+\caption{\label{tab:i} We prefer to have borders around the tables.}
+\end{table}
+
+We discourage the use of inline figures (wrapfigure), as they may be
+difficult to position if the page layout changes.
+
+We suggest not to abbreviate: ``section'', ``appendix'', ``figure''
+and ``table'', but ``eq.'' and ``ref.'' are welcome. Also, please do
+not use \texttt{\textbackslash emph} or \texttt{\textbackslash it} for
+latin abbreviaitons: i.e., et al., e.g., vs., etc.
+
+
+
+\section{Sections}
+\subsection{And subsequent}
+\subsubsection{Sub-sections}
+\paragraph{Up to paragraphs.} We find that having more levels usually
+reduces the clarity of the article. Also, we strongly discourage the
+use of non-numbered sections (e.g.~\texttt{\textbackslash
+  subsubsection*}).  Please also see the use of
+``\texttt{\textbackslash texorpdfstring\{\}\{\}}'' to avoid warnings
+from the hyperref package when you have math in the section titles
+
+
+
+\appendix
+\section{Some title}
+Please always give a title also for appendices.
+
+
+
+
+
+\acknowledgments
+
+This is the most common positions for acknowledgments. A macro is
+available to maintain the same layout and spelling of the heading.
+
+\paragraph{Note added.} This is also a good position for notes added
+after the paper has been written.
+
+
+
+
+
+% The bibliography will probably be heavily edited during typesetting.
+% We'll parse it and, using the arxiv number or the journal data, will
+% query inspire, trying to verify the data (this will probalby spot
+% eventual typos) and retrive the document DOI and eventual errata.
+% We however suggest to always provide author, title and journal data:
+% in short all the informations that clearly identify a document.
+
+\begin{thebibliography}{99}
+
+\bibitem{Planck:2018vyg}
+N.~Aghanim \textit{et al.} [Planck],
+%``Planck 2018 results. VI. Cosmological parameters,''
+Astron. Astrophys. \textbf{641} (2020), A6
+% doi:10.1051/0004-6361/201833910
+[arXiv:1807.06209 [astro-ph.CO]].
+
+\bibitem{Riess:1998cb}
+A.~G.~Riess \textit{et al.} [Supernova Search Team],
+%``Observational evidence from supernovae for an accelerating universe and a cosmological constant,''
+Astron. J. \textbf{116} (1998), 1009-1038
+% doi:10.1086/300499
+[arXiv:astro-ph/9805201 [astro-ph]].
+%13031 citations counted in INSPIRE as of 02 Feb 2021
+
+\bibitem{Perlmutter:1998np}
+S.~Perlmutter \textit{et al.} [Supernova Cosmology Project],
+%``Measurements of $\Omega$ and $\Lambda$ from 42 high redshift supernovae,''
+Astrophys. J. \textbf{517} (1999), 565-586
+% doi:10.1086/307221
+[arXiv:astro-ph/9812133 [astro-ph]].
+%13057 citations counted in INSPIRE as of 02 Feb 2021
+
+\bibitem{Eisenstein:2005su}
+D.~J.~Eisenstein \textit{et al.} [SDSS],
+%``Detection of the Baryon Acoustic Peak in the Large-Scale Correlation Function of SDSS Luminous Red Galaxies,''
+Astrophys. J. \textbf{633} (2005), 560-574
+%doi:10.1086/466512
+[arXiv:astro-ph/0501171 [astro-ph]].
+%3380 citations counted in INSPIRE as of 08 Oct 2020
+
+\bibitem{Riess:2021jrx}
+A.~G.~Riess, W.~Yuan, L.~M.~Macri, D.~Scolnic, D.~Brout, S.~Casertano, D.~O.~Jones, Y.~Murakami, L.~Breuval and T.~G.~Brink, \textit{et al.}
+%``A Comprehensive Measurement of the Local Value of the Hubble Constant with 1 km s$^{?1}$ Mpc$^{?1}$ Uncertainty from the Hubble Space Telescope and the SH0ES Team,''
+Astrophys. J. Lett. \textbf{934} (2022) no.1, L7
+%doi:10.3847/2041-8213/ac5c5b
+[arXiv:2112.04510 [astro-ph.CO]].
+%370 citations counted in INSPIRE as of 09 Jan 2023
+
+\bibitem{Freedman:2021ahq}
+W.~L.~Freedman,
+%``Measurements of the Hubble Constant: Tensions in Perspective,''
+Astrophys. J. \textbf{919} (2021) no.1, 16
+%doi:10.3847/1538-4357/ac0e95
+[arXiv:2106.15656 [astro-ph.CO]].
+%179 citations counted in INSPIRE as of 09 Jan 2023
+
+\bibitem{Pesce:2020xfe}
+D.~W.~Pesce, J.~A.~Braatz, M.~J.~Reid, A.~G.~Riess, D.~Scolnic, J.~J.~Condon, F.~Gao, C.~Henkel, C.~M.~V.~Impellizzeri and C.~Y.~Kuo, \textit{et al.}
+%``The Megamaser Cosmology Project. XIII. Combined Hubble constant constraints,''
+Astrophys. J. Lett. \textbf{891} (2020) no.1, L1
+%doi:10.3847/2041-8213/ab75f0
+[arXiv:2001.09213 [astro-ph.CO]].
+%96 citations counted in INSPIRE as of 12 Jul 2021
+
+\bibitem{Blakeslee:2021rqi}
+J.~P.~Blakeslee, J.~B.~Jensen, C.~P.~Ma, P.~A.~Milne and J.~E.~Greene,
+%``The Hubble Constant from Infrared Surface Brightness Fluctuation Distances,''
+Astrophys. J. \textbf{911} (2021) no.1, 65
+%doi:10.3847/1538-4357/abe86a
+[arXiv:2101.02221 [astro-ph.CO]].
+%11 citations counted in INSPIRE as of 12 Jul 2021
+
+\bibitem{Kourkchi:2020iyz}
+E.~Kourkchi, R.~B.~Tully, G.~S.~Anand, H.~M.~Courtois, A.~Dupuy, J.~D.~Neill, L.~Rizzi and M.~Seibert,
+%``Cosmicflows-4: The Calibration of Optical and Infrared Tully\textendash{}Fisher Relations,''
+Astrophys. J. \textbf{896} (2020) no.1, 3
+%doi:10.3847/1538-4357/ab901c
+[arXiv:2004.14499 [astro-ph.GA]].
+%15 citations counted in INSPIRE as of 12 Jul 2021
+
+\bibitem{HSC:2018mrq}
+C.~Hikage \textit{et al.} [HSC],
+``Cosmology from cosmic shear power spectra with Subaru Hyper Suprime-Cam first-year data,''
+Publ. Astron. Soc. Jap. \textbf{71}, 43  (2019).
+%doi:10.1093/pasj/psz010
+
+\bibitem{KiDS:2020suj}
+M.~Asgari \textit{et al.} [KiDS],
+``KiDS-1000 Cosmology: Cosmic shear constraints and comparison between two point statistics,''
+Astron. Astrophys. \textbf{645} (2021), A104
+%doi:10.1051/0004-6361/202039070
+[arXiv:2007.15633 [astro-ph.CO]].
+%113 citations counted in INSPIRE as of 18 Aug 2021
+
+\bibitem{DES:2021wwk}
+T.~M.~C.~Abbott \textit{et al.} [DES],
+``Dark Energy Survey Year 3 results: Cosmological constraints from galaxy clustering and weak lensing,''
+Phys. Rev. D \textbf{105} (2022) no.2, 023520
+%doi:10.1103/PhysRevD.105.023520
+[arXiv:2105.13549 [astro-ph.CO]].
+%519 citations counted in INSPIRE as of 14 Jul 2023
+
+\bibitem{Boruah:2019icj}
+S.~S.~Boruah, M.~J.~Hudson and G.~Lavaux,
+%``Cosmic flows in the nearby Universe: new peculiar velocities from SNe and cosmological constraints,''
+Mon. Not. Roy. Astron. Soc. \textbf{498} (2020) no.2, 2703-2718
+%doi:10.1093/mnras/staa2485
+[arXiv:1912.09383 [astro-ph.CO]].
+%54 citations counted in INSPIRE as of 14 Jul 2023
+
+\bibitem{Said:2020epb}
+K.~Said, M.~Colless, C.~Magoulas, J.~R.~Lucey and M.~J.~Hudson,
+%``Joint analysis of 6dFGS and SDSS peculiar velocities for the growth rate of cosmic structure and tests of gravity,''
+Mon. Not. Roy. Astron. Soc. \textbf{497} (2020) no.1, 1275-1293
+%doi:10.1093/mnras/staa2032
+[arXiv:2007.04993 [astro-ph.CO]].
+%49 citations counted in INSPIRE as of 14 Jul 2023
+
+\bibitem{Perivolaropoulos:2021jda}
+L.~Perivolaropoulos and F.~Skara,
+%``Challenges for \ensuremath{\Lambda}CDM: An update,''
+New Astron. Rev. \textbf{95}, 101659  (2022).
+%doi:10.1016/j.newar.2022.101659
+%\href{https://arxiv.org/abs/2105.05208}{2105.05208}
+
+\bibitem{Abdalla:2022yfr}
+E.~Abdalla, G.~Franco Abell\'an, A.~Aboubrahim, A.~Agnello, O.~Akarsu, Y.~Akrami, G.~Alestas, D.~Aloni, L.~Amendola and L.~A.~Anchordoqui, \textit{et al.}
+%``Cosmology intertwined: A review of the particle physics, astrophysics, and cosmology associated with the cosmological tensions and anomalies,''
+JHEAp \textbf{34}, 49  (2022).
+%doi:10.1016/j.jheap.2022.04.002
+%\href{https://arxiv.org/abs/2203.06142}{2203.06142}
+
+%\cite{Phillips:1993ng}
+\bibitem{Phillips:1993ng}
+M.~M.~Phillips,
+%``The absolute magnitudes of Type IA supernovae,''
+Astrophys. J. Lett. \textbf{413} (1993), L105-L108
+%doi:10.1086/186970
+%1245 citations counted in INSPIRE as of 24 Aug 2021
+
+\bibitem{Krishnan:2020vaf}
+C.~Krishnan, E.~\'O.~Colg\'ain, M.~M.~Sheikh-Jabbari and T.~Yang,
+``Running Hubble Tension and a H0 Diagnostic,''
+Phys. Rev. D \textbf{103} (2021) no.10, 103509
+%doi:10.1103/PhysRevD.103.103509
+[arXiv:2011.02858 [astro-ph.CO]].
+%65 citations counted in INSPIRE as of 14 Jul 2023 
+
+\bibitem{Krishnan:2022fzz}
+C.~Krishnan and R.~Mondol,
+``$H_0$ as a Universal FLRW Diagnostic,''
+[arXiv:2201.13384 [astro-ph.CO]].
+%12 citations counted in INSPIRE as of 14 Jul 2023
+
+\bibitem{Liao:2020zko}
+K.~Liao, A.~Shafieloo, R.~E.~Keeley and E.~V.~Linder,
+``Determining Model-independent H 0 and Consistency Tests,''
+Astrophys. J. Lett. \textbf{895} (2020) no.2, L29
+%doi:10.3847/2041-8213/ab8dbb
+[arXiv:2002.10605 [astro-ph.CO]].
+%51 citations counted in INSPIRE as of 14 Jul 2023
+
+\bibitem{Montani:2023xpd}
+G.~Montani, M.~De Angelis, F.~Bombacigno and N.~Carlevaro,
+``Metric $f(R)$ gravity with dynamical dark energy as a paradigm for the Hubble Tension,''
+[arXiv:2306.11101 [gr-qc]].
+%1 citations counted in INSPIRE as of 14 Jul 2023
+
+\bibitem{Wong:2019kwg}
+K.~C.~Wong, S.~H.~Suyu, G.~C.~F.~Chen, C.~E.~Rusu, M.~Millon, D.~Sluse, V.~Bonvin, C.~D.~Fassnacht, S.~Taubenberger and M.~W.~Auger, \textit{et al.}
+``H0LiCOW \textendash{} XIII. A 2.4 per cent measurement of H0 from lensed quasars: 5.3\ensuremath{\sigma} tension between early- and late-Universe probes,''
+Mon. Not. Roy. Astron. Soc. \textbf{498} (2020) no.1, 1420-1439
+%doi:10.1093/mnras/stz3094
+[arXiv:1907.04869 [astro-ph.CO]].
+%804 citations counted in INSPIRE as of 18 May 2023
+
+\bibitem{Millon:2019slk}
+M.~Millon, A.~Galan, F.~Courbin, T.~Treu, S.~H.~Suyu, X.~Ding, S.~Birrer, G.~C.~F.~Chen, A.~J.~Shajib and D.~Sluse, \textit{et al.}
+``TDCOSMO. I. An exploration of systematic uncertainties in the inference of $H_0$ from time-delay cosmography,''
+Astron. Astrophys. \textbf{639} (2020), A101
+%doi:10.1051/0004-6361/201937351
+[arXiv:1912.08027 [astro-ph.CO]].
+%114 citations counted in INSPIRE as of 18 May 2023
+
+\bibitem{Dainotti:2021pqg}
+M.~G.~Dainotti, B.~De Simone, T.~Schiavone, G.~Montani, E.~Rinaldi and G.~Lambiase,
+%``On the Hubble constant tension in the SNe Ia Pantheon sample,''
+Astrophys. J. \textbf{912}, 150  (2021).
+%doi:10.3847/1538-4357/abeb73
+
+
+\bibitem{Dainotti:2022bzg}
+M.~G.~Dainotti, B.~De Simone, T.~Schiavone, G.~Montani, E.~Rinaldi, G.~Lambiase, M.~Bogdan and S.~Ugale,
+%``On the Evolution of the Hubble Constant with the SNe Ia Pantheon Sample and Baryon Acoustic Oscillations: A Feasibility Study for GRB-Cosmology in 2030,''
+Galaxies \textbf{10}, 24  (2022).
+%doi:10.3390/galaxies10010024
+
+\bibitem{Colgain:2022nlb}
+E.~\'O~Colg\'ain, M.~M.~Sheikh-Jabbari, R.~Solomon, G.~Bargiacchi, S.~Capozziello, M.~G.~Dainotti and D.~Stojkovic,
+%``Revealing intrinsic flat \ensuremath{\Lambda}CDM biases with standardizable candles,''
+Phys. Rev. D \textbf{106}, L041301  (2022).
+%doi:10.1103/PhysRevD.106.L041301
+
+\bibitem{Colgain:2022rxy}
+E.~\'O~Colg\'ain, M.~M.~Sheikh-Jabbari, R.~Solomon, M.~G.~Dainotti and D.~Stojkovic,
+%``Putting Flat $\Lambda$CDM In The (Redshift) Bin,''
+[arXiv:2206.11447 [astro-ph.CO]].
+%42 citations counted in INSPIRE as of 14 Jul 2023
+
+
+\bibitem{Malekjani:2023dky}
+M.~Malekjani, R.~M.~Conville, E.~\'O~Colg\'ain, S.~Pourojaghi and M.~M.~Sheikh-Jabbari,
+%``Negative Dark Energy Density from High Redshift Pantheon+ Supernovae,''
+\href{https://arxiv.org/abs/2301.12725}{arXiv:2301.12725}.
+
+\bibitem{Hu:2022kes}
+J.~P.~Hu and F.~Y.~Wang,
+%``Revealing the late-time transition of H0: relieve the Hubble crisis,''
+Mon. Not. Roy. Astron. Soc. \textbf{517}, 576  (2022).
+%doi:10.1093/mnras/stac2728
+\href{https://arxiv.org/abs/2203.13037}{2203.13037}
+%8 citations counted in INSPIRE as of 05 Feb 2023
+
+\bibitem{Jia:2022ycc}
+X.~D.~Jia, J.~P.~Hu and F.~Y.~Wang,
+%``The evidence for a decreasing trend of Hubble constant,''
+\href{https://arxiv.org/abs/2212.00238}{arXiv:2212.00238}.
+
+
+\bibitem{Risaliti:2018reu}
+G.~Risaliti and E.~Lusso,
+%``Cosmological constraints from the Hubble diagram of quasars at high redshifts,''
+Nature Astron. \textbf{3}, 272  (2019).
+%doi:10.1038/s41550-018-0657-z
+\href{https://arxiv.org/abs/1811.02590}{1811.02590}
+
+
+\bibitem{Lusso:2020pdb}
+E.~Lusso, G.~Risaliti, E.~Nardini, G.~Bargiacchi, M.~Benetti, S.~Bisogni, S.~Capozziello, F.~Civano, L.~Eggleston and M.~Elvis, \textit{et al.}
+%``Quasars as standard candles III. Validation of a new sample for cosmological studies,''
+Astron. Astrophys. \textbf{642}, A150  (2020).
+%doi:10.1051/0004-6361/202038899
+\href{https://arxiv.org/abs/2008.08586}{2008.08586}
+
+
+\bibitem{Yang:2019vgk}
+T.~Yang, A.~Banerjee and E.~\'O~Colg\'ain,
+%``Cosmography and flat $\Lambda$CDM tensions at high redshift,''
+Phys. Rev. D \textbf{102}, 123532  (2020).
+%doi:10.1103/PhysRevD.102.123532
+\href{https://arxiv.org/abs/1911.01681}{1911.01681}
+
+
+\bibitem{Khadka:2020vlh}
+N.~Khadka and B.~Ratra,
+%``Using quasar X-ray and UV flux measurements to constrain cosmological model parameters,''
+Mon. Not. Roy. Astron. Soc. \textbf{497}, 263  (2020).
+%doi:10.1093/mnras/staa1855
+\href{https://arxiv.org/abs/2004.09979}{2004.09979}
+
+\bibitem{Khadka:2020tlm}
+N.~Khadka and B.~Ratra,
+%``Determining the range of validity of quasar X-ray and UV flux measurements for constraining cosmological model parameters,''
+Mon. Not. Roy. Astron. Soc. \textbf{502}, 6140  (2021).
+%doi:10.1093/mnras/stab486
+\href{https://arxiv.org/abs/2012.09291}{2012.09291}
+
+
+\bibitem{Khadka:2021xcc}
+N.~Khadka and B.~Ratra,
+%``Do quasar X-ray and UV flux measurements provide a useful test of cosmological models?,''
+Mon. Not. Roy. Astron. Soc. \textbf{510}, 2753  (2022).
+%doi:10.1093/mnras/stab3678
+\href{https://arxiv.org/abs/2107.07600}{2107.07600}
+
+\bibitem{Pourojaghi:2022zrh}
+S.~Pourojaghi, N.~F.~Zabihi and M.~Malekjani,
+%``Can high-redshift Hubble diagrams rule out the standard model of cosmology in the context of cosmography?,''
+Phys. Rev. D \textbf{106}, 123523  (2022).
+%doi:10.1103/PhysRevD.106.123523
+%\href{https://arxiv.org/abs/2212.04118}{2212.04118}
+
+\bibitem{Pasten:2023rpc}
+E.~Past\'en and V.~H.~C\'ardenas,
+``Testing \ensuremath{\Lambda}CDM cosmology in a binned universe: Anomalies in the deceleration parameter,''
+Phys. Dark Univ. \textbf{40} (2023), 101224
+%doi:10.1016/j.dark.2023.101224
+[arXiv:2301.10740 [astro-ph.CO]].
+
+\bibitem{Esposito:2022plo}
+M.~Esposito, V.~Ir\v{s}i\v{c}, M.~Costanzi, S.~Borgani, A.~Saro and M.~Viel,
+%``Weighing cosmic structures with clusters of galaxies and the intergalactic medium,''
+Mon. Not. Roy. Astron. Soc. \textbf{515}, 857  (2022).
+%doi:10.1093/mnras/stac1825
+[arXiv:2202.00974 [astro-ph.CO]].
+
+\bibitem{Adil:2023jtu}
+S.~A.~Adil, \"O.~Akarsu, M.~Malekjani, E.~\'O~Colg\'ain, S.~Pourojaghi, A.~A.~Sen and M.~M.~Sheikh-Jabbari,
+``$S_8$ increases with effective redshift in $\Lambda$CDM cosmology,''
+[arXiv:2303.06928 [astro-ph.CO]].
+%1 citations counted in INSPIRE as of 14 Jul 2023
+
+\bibitem{ACT:2023dou}
+F.~J.~Qu \textit{et al.} [ACT],
+%``The Atacama Cosmology Telescope: A Measurement of the DR6 CMB Lensing Power Spectrum and its Implications for Structure Growth,''
+[arXiv:2304.05202 [astro-ph.CO]].
+%10 citations counted in INSPIRE as of 14 Jul 2023
+
+\bibitem{ACT:2023kun}
+M.~S.~Madhavacheril \textit{et al.} [ACT],
+%``The Atacama Cosmology Telescope: DR6 Gravitational Lensing Map and Cosmological Parameters,''
+[arXiv:2304.05203 [astro-ph.CO]].
+%10 citations counted in INSPIRE as of 14 Jul 2023
+
+\bibitem{ACT:2023ipp}
+G.~A.~Marques \textit{et al.} [ACT and DES],
+``Cosmological constraints from the tomography of DES-Y3 galaxies with CMB lensing from ACT DR4,''
+[arXiv:2306.17268 [astro-ph.CO]].
+%0 citations counted in INSPIRE as of 14 Jul 2023
+
+
+\bibitem{Scolnic:2021amr}
+D.~Scolnic, D.~Brout, A.~Carr, A.~G.~Riess, T.~M.~Davis, A.~Dwomoh, D.~O.~Jones, N.~Ali, P.~Charvu and R.~Chen, \textit{et al.}
+%``The Pantheon+ Analysis: The Full Data Set and Light-curve Release,''
+Astrophys. J. \textbf{938} (2022) no.2, 113
+%doi:10.3847/1538-4357/ac8b7a
+[arXiv:2112.03863 [astro-ph.CO]].
+%123 citations counted in INSPIRE as of 28 Jun 2023
+
+
+\bibitem{Brout:2022vxf}
+D.~Brout, D.~Scolnic, B.~Popovic, A.~G.~Riess, J.~Zuntz, R.~Kessler, A.~Carr, T.~M.~Davis, S.~Hinton and D.~Jones, \textit{et al.}
+%``The Pantheon+ Analysis: Cosmological Constraints,''
+Astrophys. J. \textbf{938} (2022) no.2, 110
+%doi:10.3847/1538-4357/ac8e04
+[arXiv:2202.04077 [astro-ph.CO]].
+%194 citations counted in INSPIRE as of 28 Jun 2023
+
+
+\bibitem{Malekjani:2023dky}
+M.~Malekjani, R.~M.~Conville, E.~\'O.~Colg\'ain, S.~Pourojaghi and M.~M.~Sheikh-Jabbari,
+%``Negative Dark Energy Density from High Redshift Pantheon+ Supernovae,''
+[arXiv:2301.12725 [astro-ph.CO]].
+%13 citations counted in INSPIRE as of 28 Jun 2023
+
+\bibitem{Colgain:2022tql}
+E.~\'O~Colg\'ain, M.~M.~Sheikh-Jabbari and R.~Solomon,
+``High redshift \ensuremath{\Lambda}CDM cosmology: To bin or not to bin?,''
+Phys. Dark Univ. \textbf{40} (2023), 101216
+%doi:10.1016/j.dark.2023.101216
+[arXiv:2211.02129 [astro-ph.CO]].
+%10 citations counted in INSPIRE as of 28 Jun 2023
+
+\bibitem{Hou:2020rse}
+J.~Hou, A.~G.~S\'anchez, A.~J.~Ross, A.~Smith, R.~Neveux, J.~Bautista, E.~Burtin, C.~Zhao, R.~Scoccimarro and K.~S.~Dawson, \textit{et al.}
+%``The Completed SDSS-IV extended Baryon Oscillation Spectroscopic Survey: BAO and RSD measurements from anisotropic clustering analysis of the Quasar Sample in configuration space between redshift 0.8 and 2.2,''
+Mon. Not. Roy. Astron. Soc. \textbf{500} (2020) no.1, 1201-1221
+%:10.1093/mnras/staa3234
+[arXiv:2007.08998 [astro-ph.CO]].
+%135 citations counted in INSPIRE as of 28 Jun 2023
+
+\bibitem{Neveux:2020voa}
+R.~Neveux, E.~Burtin, A.~de Mattia, A.~Smith, A.~J.~Ross, J.~Hou, J.~Bautista, J.~Brinkmann, C.~H.~Chuang and K.~S.~Dawson, \textit{et al.}
+%``The completed SDSS-IV extended Baryon Oscillation Spectroscopic Survey: BAO and RSD measurements from the anisotropic power spectrum of the quasar sample between redshift 0.8 and 2.2,''
+Mon. Not. Roy. Astron. Soc. \textbf{499} (2020) no.1, 210-229
+%doi:10.1093/mnras/staa2780
+[arXiv:2007.08999 [astro-ph.CO]].
+%133 citations counted in INSPIRE as of 28 Jun 2023
+
+\bibitem{duMasdesBourboux:2020pck}
+H.~du Mas des Bourboux, J.~Rich, A.~Font-Ribera, V.~de Sainte Agathe, J.~Farr, T.~Etourneau, J.~M.~Le Goff, A.~Cuceu, C.~Balland and J.~E.~Bautista, \textit{et al.}
+%``The Completed SDSS-IV Extended Baryon Oscillation Spectroscopic Survey: Baryon Acoustic Oscillations with Ly\ensuremath{\alpha} Forests,''
+Astrophys. J. \textbf{901} (2020) no.2, 153
+%doi:10.3847/1538-4357/abb085
+[arXiv:2007.08995 [astro-ph.CO]].
+%172 citations counted in INSPIRE as of 28 Jun 2023
+
+\bibitem{Jimenez:2001gg}
+R.~Jimenez and A.~Loeb,
+%``Constraining cosmological parameters based on relative galaxy ages,''
+Astrophys. J. \textbf{573} (2002), 37-42
+%doi:10.1086/340549
+[arXiv:astro-ph/0106145 [astro-ph]].
+%598 citations counted in INSPIRE as of 28 Jun 2023
+
+\bibitem{Jimenez:2023flo}
+R.~Jimenez, M.~Moresco, L.~Verde and B.~D.~Wandelt,
+%``Cosmic Chronometers with Photometry: a new path to $H(z)$,''
+[arXiv:2306.11425 [astro-ph.CO]].
+%0 citations counted in INSPIRE as of 28 Jun 2023
+
+\bibitem{Tomasetti:2023kek}
+E.~Tomasetti, M.~Moresco, N.~Borghi, K.~Jiao, A.~Cimatti, L.~Pozzetti, A.~C.~Carnall, R.~J.~McLure and L.~Pentericci,
+%``A new measurement of the expansion history of the Universe at z=1.26 with cosmic chronometers in VANDELS,''
+[arXiv:2305.16387 [astro-ph.CO]].
+%1 citations counted in INSPIRE as of 28 Jun 2023
+
+
+\bibitem{DES:2019fny}
+A.~J.~Shajib \textit{et al.} [DES],
+``STRIDES: a 3.9 per cent measurement of the Hubble constant from the strong lens system DES J0408\ensuremath{-}5354,''
+Mon. Not. Roy. Astron. Soc. \textbf{494} (2020) no.4, 6072-6102
+%doi:10.1093/mnras/staa828
+[arXiv:1910.06306 [astro-ph.CO]].
+%147 citations counted in INSPIRE as of 18 May 2023
+
+\bibitem{Sluse:2003iy}
+D.~Sluse, J.~Surdej, J.~F.~Claeskens, D.~Hutsemekers, C.~Jean, F.~Courbin, T.~Nakos, M.~Billeres and S.~V.~Khmil,
+``A Quadruply imaged quasar with an optical Einstein ring candidate: 1RXS J113155.4-123155,''
+Astron. Astrophys. \textbf{406} (2003), L43-L46
+%doi:10.1051/0004-6361:20030904
+[arXiv:astro-ph/0307345 [astro-ph]].
+%83 citations counted in INSPIRE as of 14 Jul 2023
+
+\bibitem{Shajib:2023uig}
+A.~J.~Shajib, P.~Mozumdar, G.~C.~F.~Chen, T.~Treu, M.~Cappellari, S.~Knabel, S.~H.~Suyu, V.~N.~Bennert, J.~A.~Frieman and D.~Sluse, \textit{et al.}
+``TDCOSMO. XIII. Improved Hubble constant measurement from lensing time delays using spatially resolved stellar kinematics of the lens galaxy,''
+Astron. Astrophys. \textbf{673} (2023), A9
+%doi:10.1051/0004-6361/202345878
+[arXiv:2301.02656 [astro-ph.CO]].
+%3 citations counted in INSPIRE as of 18 May 2023
+
+\bibitem{Birrer:2020tax}
+S.~Birrer, A.~J.~Shajib, A.~Galan, M.~Millon, T.~Treu, A.~Agnello, M.~Auger, G.~C.~F.~Chen, L.~Christensen and T.~Collett, \textit{et al.}
+``TDCOSMO - IV. Hierarchical time-delay cosmography \textendash{} joint inference of the Hubble constant and galaxy density profiles,''
+Astron. Astrophys. \textbf{643} (2020), A165
+%doi:10.1051/0004-6361/202038861
+[arXiv:2007.02941 [astro-ph.CO]].
+%223 citations counted in INSPIRE as of 18 May 2023
+
+\bibitem{Shajib:2023uig}
+A.~J.~Shajib, P.~Mozumdar, G.~C.~F.~Chen, T.~Treu, M.~Cappellari, S.~Knabel, S.~H.~Suyu, V.~N.~Bennert, J.~A.~Frieman and D.~Sluse, \textit{et al.}
+%``TDCOSMO. XIII. Improved Hubble constant measurement from lensing time delays using spatially resolved stellar kinematics of the lens galaxy,''
+Astron. Astrophys. \textbf{673} (2023), A9
+%doi:10.1051/0004-6361/202345878
+[arXiv:2301.02656 [astro-ph.CO]].
+%10 citations counted in INSPIRE as of 14 Jul 2023
+
+\bibitem{Kelly:2023mgv}
+P.~L.~Kelly, S.~Rodney, T.~Treu, M.~Oguri, W.~Chen, A.~Zitrin, S.~Birrer, V.~Bonvin, L.~Dessart and J.~M.~Diego, \textit{et al.}
+``Constraints on the Hubble constant from Supernova Refsdal's reappearance,''
+%doi:10.1126/science.abh1322
+[arXiv:2305.06367 [astro-ph.CO]].
+%1 citations counted in INSPIRE as of 18 May 2023
+
+\bibitem{DES:2017lgx}
+H.~Lin \textit{et al.} [DES],
+``Discovery of the Lensed Quasar System DES J0408-5354,''
+Astrophys. J. Lett. \textbf{838} (2017) no.2, L15
+%doi:10.3847/2041-8213/aa624e
+[arXiv:1702.00072 [astro-ph.GA]].
+%28 citations counted in INSPIRE as of 18 May 2023
+
+ \bibitem{Kelly:2023wzm}
+P.~L.~Kelly, S.~Rodney, T.~Treu, S.~Birrer, V.~Bonvin, L.~Dessart, R.~J.~Foley, A.~V.~Filippenko, D.~Gilman and S.~Jha, \textit{et al.}
+``The Magnificent Five Images of Supernova Refsdal: Time Delay and Magnification Measurements,''
+Astrophys. J. \textbf{948} (2023) no.2, 93
+%doi:10.3847/1538-4357/ac4ccb
+[arXiv:2305.06377 [astro-ph.CO]].
+%1 citations counted in INSPIRE as of 18 May 2023
+
+\bibitem{Tomasetti:2023kek}
+E.~Tomasetti, M.~Moresco, N.~Borghi, K.~Jiao, A.~Cimatti, L.~Pozzetti, A.~C.~Carnall, R.~J.~McLure and L.~Pentericci,
+%``A new measurement of the expansion history of the Universe at z=1.26 with cosmic chronometers in VANDELS,''
+[arXiv:2305.16387 [astro-ph.CO]].
+%0 citations counted in INSPIRE as of 16 Jun 202
+
+\bibitem{Gomez-Valent:2018hwc}
+A.~G\'omez-Valent and L.~Amendola,
+%``$H_0$ from cosmic chronometers and Type Ia supernovae, with Gaussian Processes and the novel Weighted Polynomial Regression method,''
+JCAP \textbf{04} (2018), 051
+%doi:10.1088/1475-7516/2018/04/051
+[arXiv:1802.01505 [astro-ph.CO]].
+%173 citations counted in INSPIRE as of 16 Jun 2023
+
+\bibitem{Haridasu:2018gqm}
+B.~S.~Haridasu, V.~V.~Lukovi\'c, M.~Moresco and N.~Vittorio,
+%``An improved model-independent assessment of the late-time cosmic expansion,''
+JCAP \textbf{10} (2018), 015
+%doi:10.1088/1475-7516/2018/10/015
+[arXiv:1805.03595 [astro-ph.CO]].
+%92 citations counted in INSPIRE as of 16 Jun 2023
+
+\bibitem{Moresco:2022phi}
+M.~Moresco, L.~Amati, L.~Amendola, S.~Birrer, J.~P.~Blakeslee, M.~Cantiello, A.~Cimatti, J.~Darling, M.~Della Valle and M.~Fishbach, \textit{et al.}
+%``Unveiling the Universe with emerging cosmological probes,''
+Living Rev. Rel. \textbf{25} (2022) no.1, 6
+%doi:10.1007/s41114-022-00040-z
+[arXiv:2201.07241 [astro-ph.CO]].
+%71 citations counted in INSPIRE as of 16 Jun 2023
+
+
+\bibitem{Risaliti:2015zla}
+G.~Risaliti and E.~Lusso,
+%``A Hubble Diagram for Quasars,''
+Astrophys. J. \textbf{815} (2015), 33
+%doi:10.1088/0004-637X/815/1/33
+[arXiv:1505.07118 [astro-ph.CO]].
+%146 citations counted in INSPIRE as of 16 Jun 2023
+
+\bibitem{Risaliti:2018reu}
+G.~Risaliti and E.~Lusso,
+%``Cosmological constraints from the Hubble diagram of quasars at high redshifts,''
+Nature Astron. \textbf{3} (2019) no.3, 272-277
+%doi:10.1038/s41550-018-0657-z
+[arXiv:1811.02590 [astro-ph.CO]].
+%213 citations counted in INSPIRE as of 16 Jun 2023
+
+\bibitem{Lusso:2020pdb}
+E.~Lusso, G.~Risaliti, E.~Nardini, G.~Bargiacchi, M.~Benetti, S.~Bisogni, S.~Capozziello, F.~Civano, L.~Eggleston and M.~Elvis, \textit{et al.}
+%``Quasars as standard candles III. Validation of a new sample for cosmological studies,''
+Astron. Astrophys. \textbf{642} (2020), A150
+%doi:10.1051/0004-6361/202038899
+[arXiv:2008.08586 [astro-ph.GA]].
+%79 citations counted in INSPIRE as of 16 Jun 2023
+
+\bibitem{Gomez-Valent:2022hkb}
+A.~G\'omez-Valent,
+%``Fast test to assess the impact of marginalization in Monte~Carlo analyses and its application to cosmology,''
+Phys. Rev. D \textbf{106} (2022) no.6, 063506
+%doi:10.1103/PhysRevD.106.063506
+[arXiv:2203.16285 [astro-ph.CO]].
+%20 citations counted in INSPIRE as of 11 Jul 2023
+
+
+\end{thebibliography}
+\end{document}
